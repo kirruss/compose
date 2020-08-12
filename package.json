@@ -19,5 +19,10 @@
         "eslint-plugin-standard": "^4.0.1",
         "prettier": "^2.0.5",
         "typescript": "^4.0.0-beta"
+    },
+    "scripts": {
+        "lint-check": "eslint \"**/*.+(js|json|ts)\"",
+        "format-check": "prettier --check \"**/*.+(js|json|ts)\"",
+        "check": "yarn format-check && yarn lint-check"
     }
 }
