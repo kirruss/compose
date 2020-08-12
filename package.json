@@ -44,6 +44,7 @@
         "lint-check": "eslint \"**/*.+(js|json|ts)\"",
         "format-check": "prettier --check \"**/*.+(js|json|ts)\"",
         "check": "yarn format-check && yarn lint-check",
-        "dev": "nodemon"
+        "dev": "nodemon",
+        "build": "rollup -c ./rollup.config.ts"
     }
 }
