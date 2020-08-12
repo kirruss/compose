@@ -24,6 +24,7 @@
     "scripts": {
         "lint-check": "eslint \"**/*.+(js|json|ts)\"",
         "format-check": "prettier --check \"**/*.+(js|json|ts)\"",
-        "check": "yarn format-check && yarn lint-check"
+        "check": "yarn format-check && yarn lint-check",
+        "dev": "nodemon"
     }
 }
