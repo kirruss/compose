@@ -6,6 +6,16 @@
     "author": "BlueGhostGH <engisoftleaderoff@gmail.com>",
     "license": "Unlicense",
     "main": "dist/bundle.cjs.js",
+    "module": "dist/bundle.esm.js",
+    "browser": "dist/bundle.umd.js",
+    "typings": "dist/bundle.esm.d.ts",
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "public"
+    },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^14.0.0",
         "@rollup/plugin-node-resolve": "^8.4.0",
