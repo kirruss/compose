@@ -1,0 +1,9 @@
+{
+    "name": "@kirusu/compose",
+    "version": "1.0.0",
+    "description": "Type-safe koa-like middleware composition utility",
+    "main": "dist/bundle.cjs.js",
+    "repository": "https://github.com/kirusuu/compose",
+    "author": "BlueGhostGH <engisoftleaderoff@gmail.com>",
+    "license": "Unlicense"
+}
