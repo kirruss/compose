@@ -3,12 +3,12 @@
         "strict": true,
         "target": "ES5",
         "module": "ESNext",
+        "outDir": "./dist",
         "esModuleInterop": true,
         "strictNullChecks": true,
         "moduleResolution": "Node",
         "downlevelIteration": true,
-        "allowSyntheticDefaultImports": true,
-        "noImplicitReturns": true
+        "allowSyntheticDefaultImports": true
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules"]
