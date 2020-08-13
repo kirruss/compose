@@ -9,8 +9,7 @@
         "strictNullChecks": true,
         "noImplicitReturns": true,
         "moduleResolution": "Node",
-        "downlevelIteration": true,
-        "allowSyntheticDefaultImports": true
+        "downlevelIteration": true
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules"]
