@@ -9,7 +9,8 @@
         "strictNullChecks": true,
         "noImplicitReturns": true,
         "moduleResolution": "Node",
-        "downlevelIteration": true
+        "downlevelIteration": true,
+        "noFallthroughCasesInSwitch": true
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules"]
