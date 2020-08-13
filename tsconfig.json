@@ -4,6 +4,7 @@
         "target": "ES5",
         "module": "ESNext",
         "outDir": "./dist",
+        "incremental": true,
         "esModuleInterop": true,
         "strictNullChecks": true,
         "noImplicitReturns": true,
