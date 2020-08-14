@@ -1,5 +1,5 @@
 {
-    "name": "@kirusu/compose",
+    "name": "@kirrus/compose",
     "version": "1.0.0",
     "description": "Type-safe koa-like middleware composition utility",
     "repository": "https://github.com/kirusuu/compose",
