@@ -54,6 +54,6 @@
         "dry-run": "npx --node-arg=\"--require dotenv/config\" semantic-release --dry-run",
         "build": "rollup -c ./rollup.config.ts",
         "ts-test": "tsc --project ./test/tsconfig.json",
-        "test": "yarn ts-test && cross-env NODE_ENV=test mocha \"test/test/**/*.test.js\" --exit"
+        "test": "yarn ts-test && cross-env NODE_ENV=test mocha \"test/tests/**/*.test.js\" --exit"
     }
 }
