@@ -67,7 +67,6 @@ export class MiddlewareComposer<T, R extends T = T>
     }
 
     public getMiddleware() {
-        // TODO: compose the middleware from this.middleware
-        return null as any
+        return unsafeCompose(this.middleware.map(normaliseMiddleware))
     }
 }
