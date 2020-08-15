@@ -68,3 +68,6 @@ coverage-ts
 
 # sandbox files for local development
 sandbox
+
+# test files for locally running tests
+test
