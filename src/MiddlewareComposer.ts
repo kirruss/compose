@@ -33,6 +33,24 @@ const normaliseMiddleware = <T, R extends T>(
     return middleware
 }
 
+const unsafeCompose = (
+    middleware: FunctionMiddleware<any, any>[]
+): FunctionMiddleware<any, any> => async (ctx, next) => {
+    const run = async (i: number): Promise<any> => {
+        let currMiddleware = middleware[i]
+
+        if (middleware.length === i) currMiddleware = next
+
+        if (currMiddleware) {
+            return currMiddleware(context, () => run(i + 1))
+        } else {
+            return
+        }
+    }
+
+    return run(0)
+}
+
 export class MiddlewareComposer<T, R extends T = T>
     implements IMiddleware<T, R> {
     private middleware: Middleware<any, any>[] = []
