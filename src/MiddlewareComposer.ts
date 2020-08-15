@@ -35,14 +35,17 @@ const normaliseMiddleware = <T, R extends T>(
 
 const unsafeCompose = (
     middleware: FunctionMiddleware<any, any>[]
-): FunctionMiddleware<any, any> => async (ctx, next) => {
+): FunctionMiddleware<any, any> => async (context, next) => {
     const run = async (i: number): Promise<any> => {
         let currMiddleware = middleware[i]
 
         if (middleware.length === i) currMiddleware = next
 
         if (currMiddleware) {
-            return currMiddleware(ctx, () => run(i + 1))
+            const newContext = currMiddleware(context, () => run(i + 1))
+            if (newContext) {
+                context = { ...context, ...newContext }
+            }
         } else {
             return
         }
