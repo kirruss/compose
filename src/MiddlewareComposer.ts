@@ -42,7 +42,7 @@ const unsafeCompose = (
         if (middleware.length === i) currMiddleware = next
 
         if (currMiddleware) {
-            const newContext = currMiddleware(context, () => run(i + 1))
+            const newContext = await currMiddleware(context, () => run(i + 1))
             if (newContext) {
                 context = { ...context, ...newContext }
             }
