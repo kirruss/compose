@@ -42,7 +42,7 @@ const unsafeCompose = (
         if (middleware.length === i) currMiddleware = next
 
         if (currMiddleware) {
-            return currMiddleware(context, () => run(i + 1))
+            return currMiddleware(ctx, () => run(i + 1))
         } else {
             return
         }
