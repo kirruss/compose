@@ -63,10 +63,10 @@ export class MiddlewareComposer<T, R extends T = T>
     ): MiddlewareComposer<T, R & R2> {
         this.middleware.push(newMiddleware)
 
-        return this
+        return (this as any) as MiddlewareComposer<T, R & R2>
     }
 
-    public getMiddleware() {
+    public getMiddleware(): Middleware<T, R> {
         return unsafeCompose(this.middleware.map(normaliseMiddleware))
     }
 }
