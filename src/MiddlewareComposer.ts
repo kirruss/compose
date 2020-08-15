@@ -23,6 +23,16 @@ const isIMiddleware = <T, R extends T>(
     return (middleware as IMiddleware<T, R>).getMiddleware !== undefined
 }
 
+const normaliseMiddleware = <T, R extends T>(
+    middleware: Middleware<T, R>
+): FunctionMiddleware<T, R> => {
+    if (isIMiddleware(middleware)) {
+        return normaliseMiddleware(middleware)
+    }
+
+    return middleware
+}
+
 export class MiddlewareComposer<T, R extends T = T>
     implements IMiddleware<T, R> {
     private middleware: Middleware<any, any>[] = []
