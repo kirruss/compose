@@ -37,17 +37,15 @@ const unsafeCompose = (
     middleware: FunctionMiddleware<any, any>[]
 ): FunctionMiddleware<any, any> => async (context, next) => {
     const run = async (i: number): Promise<any> => {
-        let currMiddleware = middleware[i]
+        if (middleware.length === i) {
+            return await next()
+        }
 
-        if (middleware.length === i) currMiddleware = next
+        const newContext = await middleware[i](context, () => run(i + 1))
 
-        if (currMiddleware) {
-            const newContext = await currMiddleware(context, () => run(i + 1))
-            if (newContext) {
-                context = { ...context, ...newContext }
-            }
-        } else {
-            return
+        if (newContext) {
+            Object.assign(context, newContext)
+            await run(i + 1)
         }
     }
 
