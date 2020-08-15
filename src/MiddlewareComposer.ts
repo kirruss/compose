@@ -66,7 +66,7 @@ export class MiddlewareComposer<T, R extends T = T>
         return (this as any) as MiddlewareComposer<T, R & R2>
     }
 
-    public getMiddleware(): Middleware<T, R> {
+    public getMiddleware(): FunctionMiddleware<T, R> {
         return unsafeCompose(this.middleware.map(normaliseMiddleware))
     }
 }
