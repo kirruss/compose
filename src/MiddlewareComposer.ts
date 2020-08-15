@@ -17,6 +17,12 @@ type Middleware<T, R extends T = T> =
     | IMiddleware<T, R>
     | FunctionMiddleware<T, R>
 
+const isIMiddleware = <T, R extends T>(
+    middleware: Middleware<T, R>
+): middleware is IMiddleware<T, R> => {
+    return (middleware as IMiddleware<T, R>).getMiddleware !== undefined
+}
+
 export class MiddlewareComposer<T, R extends T = T>
     implements IMiddleware<T, R> {
     private middleware: Middleware<any, any>[] = []
