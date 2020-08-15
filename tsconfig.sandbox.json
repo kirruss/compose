@@ -4,5 +4,5 @@
         "module": "CommonJS",
         "outDir": "./sandbox/dist"
     },
-    "include": ["./sandbox/**/*.ts"]
+    "include": ["./src/**/*.ts", "./sandbox/**/*.ts"]
 }
