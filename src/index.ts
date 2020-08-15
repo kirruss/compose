@@ -1,1 +1,4 @@
-export { FunctionMiddleware as Middleware } from "./MiddlewareComposer"
+export {
+    FunctionMiddleware as Middleware,
+    MiddlewareComposer
+} from "./MiddlewareComposer"
