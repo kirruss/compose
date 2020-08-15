@@ -2,6 +2,6 @@
     "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/nodemon.json",
     "ignore": ["**/*.test.ts", ".git", "node_modules"],
     "watch": ["src", "sandbox"],
-    "exec": "tsc --project ./tsconfig.sandbox.json && node sandbox",
+    "exec": "tsc --project ./tsconfig.sandbox.json && node sandbox/dist",
     "ext": "ts"
 }

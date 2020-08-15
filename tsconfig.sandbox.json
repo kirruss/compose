@@ -2,7 +2,7 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "module": "CommonJS",
-        "outDir": "./sandbox"
+        "outDir": "./sandbox/dist"
     },
     "include": ["./sandbox/**/*.ts"]
 }
