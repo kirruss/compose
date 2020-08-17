@@ -1,5 +1,7 @@
 # @kirrus/compose
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kirruss/compose/Continuous%20Integration?logo=github-actions&logoColor=white&style=for-the-badge)
+
 ## Type-safe middleware composition utility for the Kirrus framework
 
 ### `@kirrus/compose` is a module part of the kirrus namespace, used for composing middleware in a typesafe and lazy manner
