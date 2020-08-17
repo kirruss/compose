@@ -42,4 +42,4 @@ jobs:
             - name: Build project
               run: yarn build
             - name: Check for linting and formatting of the project
-              run: yarn check
+              run: yarn run check
