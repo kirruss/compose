@@ -1,6 +1,6 @@
 # @kirrus/compose
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kirruss/compose/Continuous%20Integration?logo=github-actions&logoColor=white&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kirruss/compose/Continuous%20Integration?logo=github-actions&logoColor=white&style=for-the-badge)  ![Code Climate coverage](https://img.shields.io/codeclimate/coverage/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/kirruss/compose?logo=code-climate&style=for-the-badge)
 
 ## Type-safe middleware composition utility for the Kirrus framework
 
