@@ -2,6 +2,8 @@
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kirruss/compose/Continuous%20Integration?logo=github-actions&logoColor=white&style=for-the-badge)  ![Code Climate coverage](https://img.shields.io/codeclimate/coverage/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/kirruss/compose?logo=code-climate&style=for-the-badge)
 
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@kirrus/compose?logo=npm&style=for-the-badge) ![npm](https://img.shields.io/npm/dw/@kirrus/compose?color=blue&logo=npm&style=for-the-badge) ![npm](https://img.shields.io/npm/v/@kirrus/compose?color=black&label=npm%20version&logo=npm&style=for-the-badge) ![npm type definitions](https://img.shields.io/npm/types/@kirrus/compose?logo=typescript&style=for-the-badge)
+
 ## Type-safe middleware composition utility for the Kirrus framework
 
 ### `@kirrus/compose` is a module part of the kirrus namespace, used for composing middleware in a typesafe and lazy manner
