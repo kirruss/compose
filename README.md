@@ -1,6 +1,6 @@
 # @kirrus/compose
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kirruss/compose/Continuous%20Integration?logo=github-actions&logoColor=white&style=for-the-badge)  ![Code Climate coverage](https://img.shields.io/codeclimate/coverage/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/kirruss/compose?logo=code-climate&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kirruss/compose/Continuous%20Integration?logo=github-actions&logoColor=white&style=for-the-badge) ![Code Climate coverage](https://img.shields.io/codeclimate/coverage/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/kirruss/compose?logo=code-climate&style=for-the-badge) ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/kirruss/compose?logo=code-climate&style=for-the-badge)
 
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@kirrus/compose?logo=npm&style=for-the-badge) ![npm](https://img.shields.io/npm/dw/@kirrus/compose?color=blue&logo=npm&style=for-the-badge) ![npm](https://img.shields.io/npm/v/@kirrus/compose?color=black&label=npm%20version&logo=npm&style=for-the-badge) ![npm type definitions](https://img.shields.io/npm/types/@kirrus/compose?logo=typescript&style=for-the-badge)
 
@@ -27,9 +27,9 @@ type Middleware<T, R extends T = T> =
     | FunctionMiddleware<T, R>
 ```
 
-In most usecases, you'll find yourself writing middleware that fit `FunctionMiddleware` type, but just in case you want to do something fancy like a custom router, the `IMiddleware` type has been exposed too 🙂
+In most use cases, you'll find yourself writing middleware that fit `FunctionMiddleware` type, but just in case you want to do something fancy like a custom router, the `IMiddleware` type has been exposed too 🙂
 
-For usage of `MiddlewareComposer`, see [Using `@kirrus/compose`](#using-this-module)
+For usage of `MiddlewareComposer`, see [Using this module](#using-this-module)
 
 ### Installation
 
@@ -99,12 +99,12 @@ console.log(context) // { count: 2 }
 
 You can find the automatically generated changelog [here](CHANGELOG.md)
 
-So far there is no documentation for this module.
+The documentation in markdown format can be found [here](DOCS.md)
 
 #### Contributing
 
 To contribute, check the contribution guide [here](CONTRIBUTING.md)
 
-#### Licence
+#### Unlicence
 
 `@kirrus/compose` and all other repos under the kirrus organisation use the [Unlicense](UNLICENSE).
