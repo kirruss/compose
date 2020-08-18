@@ -51,6 +51,10 @@ const unsafeCompose = (
         let nextCalled = false
 
         const next = async () => {
+            if (nextCalled) {
+                throw new Error("Cannot call next more than once")
+            }
+
             nextCalled = true
             await continuation(context, nextRaw)
         }
