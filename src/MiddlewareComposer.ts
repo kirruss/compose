@@ -42,6 +42,8 @@ const normaliseMiddleware = <T, R extends T>(
 const unsafeCompose = (
     middleware: FunctionMiddleware<any, any>[]
 ): FunctionMiddleware<any, any> => {
+    if (middleware.length === 0) return (_, next) => next()
+
     const [head, ...tail] = middleware
     const continuation = unsafeCompose(tail)
 
