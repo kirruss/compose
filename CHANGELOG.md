@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/kirusuu/compose/compare/v1.0.0...v1.1.0) (2020-08-18)
+
+
+### Bug Fixes
+
+* added a check for calling next multiple times when composing ([aa9a76b](https://github.com/kirusuu/compose/commit/aa9a76ba322387e4636e19f97e2746fcfb9c0430))
+* added a check for empty middleware chains when composing ([c52d778](https://github.com/kirusuu/compose/commit/c52d7788d8ae47e42b811557e56bc15afd16d419))
+
+
+### Features
+
+* refactored middleware composition to call next automatically ([28e8e1e](https://github.com/kirusuu/compose/commit/28e8e1e31ac420b480f1ca3319c5f79a2afde933))
+
 # 1.0.0 (2020-08-17)
 
 

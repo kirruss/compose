@@ -1,6 +1,6 @@
 {
     "name": "@kirrus/compose",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Type-safe middleware composition utility for the Kirrus framework",
     "repository": "https://github.com/kirusuu/compose",
     "author": "BlueGhostGH <engisoftleaderoff@gmail.com>",
