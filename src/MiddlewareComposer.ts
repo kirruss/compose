@@ -13,6 +13,12 @@ type FunctionMiddleware<T, R extends T> = (
     next: () => Promise<void>
 ) => Awaitable<DeepPartial<R> | void>
 
+/**
+ * Type that describes either a middleware interface that
+ * has a method for returning the middleware
+ * or a middleware function that takes a context and
+ * either doesn't call or calls a next function once
+ */
 export type Middleware<T, R extends T = T> =
     | IMiddleware<T, R>
     | FunctionMiddleware<T, R>
@@ -52,10 +58,34 @@ const unsafeCompose = (
     return run(0)
 }
 
+/**
+ * Utility for lazily composing middleware chains
+ */
 export class MiddlewareComposer<T, R extends T = T>
     implements IMiddleware<T, R> {
     private middleware: Middleware<any, any>[] = []
 
+    /**
+     * Appends a middleware to the end of the chain
+     *
+     * @example
+     * type Context = { state: { count: number } }
+     *
+     * const increaseStateCount: Middleware<Context> = async (ctx, next) => {
+     *     ctx.state.count++
+     *
+     *     await next()
+     * }
+     *
+     * const composer: MiddlewareComposer<Context, Context> = new MiddlewareComposer<
+     *     Context
+     * >().use(increaseStateCount)
+     *
+     * @param middleware A middleware function or middleware interface
+     * (such as a router) to be normalised
+     * @returns A new lazy composing instance
+     * with the new middleware appended
+     */
     public use<R2 extends R>(
         newMiddleware: Middleware<T, R2>
     ): MiddlewareComposer<T, R & R2> {
@@ -64,6 +94,27 @@ export class MiddlewareComposer<T, R extends T = T>
         return (this as any) as MiddlewareComposer<T, R & R2>
     }
 
+    /**
+     * Normalises all middleware in the chain
+     * then composes them and returns a function
+     * that takes a context and a next function
+     *
+     * @example
+     * type Context = { state: { count: number } }
+     *
+     * const increaseStateCount: Middleware<Context> = async (ctx, next) => {
+     *     ctx.state.count++
+     *
+     *     await next()
+     * }
+     *
+     * const composer: Middleware<Context> = new MiddlewareComposer<Context>()
+     *     .use(increaseStateCount)
+     *     .use(increaseStateCount)
+     *     .getMiddleware()
+     *
+     * @returns A new middleware that when called executes all middleware in order, mutating the original context reference
+     */
     public getMiddleware(): FunctionMiddleware<T, R> {
         return unsafeCompose(this.middleware.map(normaliseMiddleware))
     }
