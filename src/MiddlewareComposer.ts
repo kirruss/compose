@@ -41,21 +41,26 @@ const normaliseMiddleware = <T, R extends T>(
 
 const unsafeCompose = (
     middleware: FunctionMiddleware<any, any>[]
-): FunctionMiddleware<any, any> => async (context, next) => {
-    const run = async (i: number): Promise<any> => {
-        if (middleware.length === i) {
-            return await next()
+): FunctionMiddleware<any, any> => {
+    const [head, ...tail] = middleware
+    const continuation = unsafeCompose(tail)
+
+    return async (context, nextRaw) => {
+        let nextCalled = false
+
+        const next = async () => {
+            nextCalled = true
+            await continuation(context, nextRaw)
         }
 
-        const newContext = await middleware[i](context, () => run(i + 1))
+        const partial = await head(context, next)
 
-        if (newContext) {
-            Object.assign(context, newContext)
-            await run(i + 1)
+        if (partial) {
+            Object.assign(context, partial)
         }
+
+        if (!nextCalled) await next()
     }
-
-    return run(0)
 }
 
 /**
