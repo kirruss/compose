@@ -8,6 +8,56 @@
 
 ### `@kirrus/compose` is a module part of the kirrus namespace, used for composing middleware in a typesafe and lazy manner
 
+```ts
+import { Middleware, MiddlewareComposer } from "@kirrus/compose"
+
+type Context<T = {}> = T & {
+    body: object
+    headers: Map<string, string>
+    method: string
+    url: string
+    status: number
+}
+
+const context: Context = {
+    body: {},
+    headers: new Map(),
+    method: "GET",
+    url: "/hello",
+    status: 200
+}
+
+const logger: Middleware<Context> = async (ctx, next) => {
+    await next()
+    const rt = ctx.headers.get("X-Response-Time")
+    console.log(`${ctx.method} ${ctx.url} - ${rt}`)
+}
+
+const xResponseTime: Middleware<Context> = async (ctx, next) => {
+    const start = Date.now()
+    await next()
+    const ms = Date.now() - start
+    ctx.headers.set("X-Response-Time", `${ms}ms`)
+}
+
+const helloHandler: Middleware<Context> = () => {
+    return {
+        status: 200,
+        body: {
+            status: 200,
+            message: "Hello from /hello !"
+        }
+    }
+}
+const composedMiddleware = new MiddlewareComposer<Context>()
+    .use(logger)
+    .use(xResponseTime)
+    .use(helloHandler)
+    .getMiddleware()
+
+composedMiddleware(context, async () => {})
+```
+
 This package exposes a type(`Middleware`) and a class(`MiddlewareComposer`).
 
 The type `Middleware` is used for defining what a middleware and it looks as follows:
